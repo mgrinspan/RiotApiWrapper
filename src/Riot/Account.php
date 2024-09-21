@@ -32,6 +32,19 @@ class Account
     }
 
     /**
+     * @param string $gameName
+     * @param string $tagLine
+     * @return mixed
+     * @throws RequestExceptions
+     * @throws \Exception
+     */
+    public function byRiotId(string $gameName,string $tagLine): mixed
+    {
+        $path = $this->setPath('/accounts/by-riot-id/' . $gameName . '/' . $tagLine);
+        return $this->requestHandler->getResponse($path);
+    }
+
+    /**
      * @param string $puuid
      * @return mixed
      * @throws RequestExceptions
